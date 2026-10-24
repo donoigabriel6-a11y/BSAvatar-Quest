@@ -10,7 +10,6 @@
   "packageId": "com.beatgames.beatsaber",
   "packageVersion": "1.40.8_7379",
   "description": "Custom avatar (VRM) support for Beat Saber, rebuilt from scratch for 1.40.8.",
-  "coverImage": "cover.png",
   "dependencies": [
     {
       "id": "scotland2",

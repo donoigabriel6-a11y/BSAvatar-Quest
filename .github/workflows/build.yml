@@ -72,27 +72,21 @@ jobs:
       - name: Locate build artifacts
         id: artifacts
         run: |
-          so_file=$(find build -maxdepth 1 -name "*.so" | head -n1)
           qmod_file=$(find . -maxdepth 1 -name "*.qmod" | head -n1)
-          echo "so_path=$so_file" >> "$GITHUB_OUTPUT"
           echo "qmod_path=$qmod_file" >> "$GITHUB_OUTPUT"
 
-      - name: Upload build artifacts
+      - name: Upload QMOD package
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.module_id }}-${{ steps.mod-version.outputs.version }}
-          path: |
-            ${{ steps.artifacts.outputs.so_path }}
-            ${{ steps.artifacts.outputs.qmod_path }}
+          path: ${{ steps.artifacts.outputs.qmod_path }}
           if-no-files-found: error
 
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            ${{ steps.artifacts.outputs.so_path }}
-            ${{ steps.artifacts.outputs.qmod_path }}
+          files: ${{ steps.artifacts.outputs.qmod_path }}
           generate_release_notes: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

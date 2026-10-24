@@ -12,11 +12,6 @@
   "description": "Custom avatar (VRM) support for Beat Saber, rebuilt from scratch for 1.40.8.",
   "dependencies": [
     {
-      "id": "scotland2",
-      "version": "^0.1.6",
-      "downloadIfMissing": "https://github.com/sc2ad/scotland2/releases/latest/download/scotland2.qmod"
-    },
-    {
       "id": "custom-types",
       "version": "^0.18.3",
       "downloadIfMissing": "https://github.com/QuestPackageManager/Il2CppQuestTypePatching/releases/download/v0.18.3/CustomTypes.qmod"

@@ -67,7 +67,7 @@ jobs:
           sed -n '15,25p' qpm.shared.json
 
       - name: Build qmod package
-        run: qpm qmod zip --skip_build "${{ env.module_id }}-${{ steps.mod-version.outputs.version }}.qmod"
+        run: qpm qmod zip --skip_build -i build "${{ env.module_id }}-${{ steps.mod-version.outputs.version }}.qmod"
 
       - name: Locate build artifacts
         id: artifacts
